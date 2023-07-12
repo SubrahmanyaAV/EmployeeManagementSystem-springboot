@@ -15,21 +15,21 @@ class EmployeeManagementSystemSpringbootApplicationTests {
 	private EmployeeRepository repo;
 	
 	@Test
-	public void createEmployee() {
-		Employee e = new Employee("Subrahmanya", "AV", 50000D);
+	public void testCreateEmployee() {
+		Employee e = new Employee("Subrahmanya", "AV", 50000D, "Dev");
 		Employee employee = repo.save(e);
 		
 		assertThat(employee.getId()).isNotNull().isGreaterThan(0);
 	}
 	
 	@Test
-	public void listAll() {
+	public void testListAll() {
 		List<Employee> list = repo.findAll();
 		list.forEach(employee -> System.out.println(employee));
 	}
 	
 	@Test
-	public void getId() {
+	public void testGetId() {
 		Employee e = repo.findById(1).get();
 		System.out.println(e);
 		
@@ -37,7 +37,7 @@ class EmployeeManagementSystemSpringbootApplicationTests {
 	}
 	
 	@Test
-	public void updateEmployee() {
+	public void testUpdateEmployee() {
 		Employee e = repo.findById(1).get();
 		e.setSalary(51000D);
 		repo.save(e);
@@ -45,9 +45,26 @@ class EmployeeManagementSystemSpringbootApplicationTests {
 	}
 	
 	@Test
-	public void deleteId(){
+	public void testGetDepartment() {
+		String department = "Dev";
+		Employee e = repo.getDepartment(department);
+		System.out.println(e);
+		
+		assertThat(e).isNotNull();
+	}
+	
+	@Test
+	public void testDeleteId(){
 		int employeeId = 1;
 		repo.deleteById(employeeId);
 	}
 
+	@Test
+	public void testFinfByFirstName() {
+		String firstName = "Subrahmanya";
+		List<Employee> employee = repo.findByFirstName(firstName);
+		employee.forEach(e -> System.out.println(e)); 
+		
+	}
+	
 }

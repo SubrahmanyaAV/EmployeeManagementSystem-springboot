@@ -23,16 +23,20 @@ public class Employee {
 
 	@Column
 	private Double salary;
+	
+	@Column(length = 50, nullable = false)
+	private String department;
 
 	public Employee() {
 		super();
 	}
 
-	public Employee(String firstName, String lastName, Double salary) {
+	public Employee(String firstName, String lastName, Double salary, String department) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.salary = salary;
+		this.department = department;
 	}
 
 	public Integer getId() {
@@ -67,9 +71,18 @@ public class Employee {
 		this.salary = salary;
 	}
 
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", salary=" + salary
-				+ "]";
+				+ ", department=" + department + "]";
 	}
+
 }
