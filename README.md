@@ -19,11 +19,11 @@ The Employee Management System is a simple application built using Spring Boot t
 - Maven
 - Postman or API Tester
 
-GET /employees: Get all employees.
-GET /employees/{id}: Get an employee by ID.
-POST /employees: Create a new employee.
-PUT /employees/{id}/salary: Update salary of an employee.
-DELETE /employees/{id}: Delete an employee. 
+- GET /employees: Get all employees.
+- GET /employees/{id}: Get an employee by ID.
+- POST /employees: Create a new employee.
+- PUT /employees/{id}/salary: Update salary of an employee.
+- DELETE /employees/{id}: Delete an employee. 
 
 
 to search first name ==> http://localhost:8080/employees/search?firstName=name
