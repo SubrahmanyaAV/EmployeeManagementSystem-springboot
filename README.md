@@ -27,10 +27,38 @@ The Employee Management System is a simple application built using Spring Boot t
 - DELETE /employees/{id}: Delete an employee. 
 
 
-to search first name ==> http://localhost:8080/employees/search?firstName=name
+1. Get all employees
 
-to search both department and first name 
-==> http://localhost:8080/employees/search?firstName=Subrahmanya&department=Dev
+  http://localhost:8080/employees
+
+2. Create an employee -POST
+
+  http://localhost:8080/employees
+
+3. Get employee By Id
+
+  http://localhost:8080/employees/1
+
+4. To update employee salary 
+
+  http://localhost:8080/employees/1/salary?newSalary=60000.0
+
+5. To delete an employee
+
+http://localhost:8080/employees/2
+
+6. to get department
+
+http://localhost:8080/employees/department/Dev
+
+7. to search firstName 
+
+http://localhost:8080/employees/firstName/Subrahmanya
+
+8. to search firstName and department
+
+http://localhost:8080/employees/search?firstName=Subrahmanya&department=Dev
+
 
 
 
