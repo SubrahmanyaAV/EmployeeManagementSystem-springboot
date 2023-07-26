@@ -42,17 +42,21 @@ public class EmployeeController {
 	public Employee updateSalary(@PathVariable Integer id, @RequestParam Double newSalary) {
 		return service.updateSalary(id, newSalary);
 	}
-	
+
 	@GetMapping("/employees/department/{department}")
 	public Employee getDepartment(@PathVariable String department) {
 		return service.getDepartment(department);
 	}
-	
+
 	@GetMapping("/employees/search")
 	public List<Employee> searchEmployee(@RequestParam("firstName") String firstName,
-										 @RequestParam("department") String department)
-	{
+			@RequestParam("department") String department) {
 		return service.searchEmployee(firstName, department);
+	}
+
+	@GetMapping("/employees/firstName/{firstName}")
+	public List<Employee> searchEmployeeByName(@PathVariable String firstName) {
+		return service.searchEmployeeByName(firstName);
 	}
 
 }

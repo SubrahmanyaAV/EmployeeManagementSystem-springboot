@@ -55,12 +55,12 @@ class EmployeeManagementSystemSpringbootApplicationTests {
 	
 	@Test
 	public void testDeleteId(){
-		int employeeId = 1;
+		int employeeId = 4;
 		repo.deleteById(employeeId);
 	}
 
 	@Test
-	public void testFinfByFirstName() {
+	public void testFindByFirstName() {
 		String firstName = "Subrahmanya";
 		List<Employee> employee = repo.findByFirstName(firstName);
 		employee.forEach(e -> System.out.println(e)); 

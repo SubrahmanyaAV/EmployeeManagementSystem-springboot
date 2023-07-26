@@ -27,35 +27,40 @@ public class EmployeeService {
 	}
 
 	public Employee updateSalary(Integer id, Double salary) {
-		 Employee employee = repo.findById(id).orElse(null);
-	        if (employee != null) {
-	            employee.setSalary(salary);
-	            return repo.save(employee);
-	        }
-	        return null;
+		Employee employee = repo.findById(id).orElse(null);
+		if (employee != null) {
+			employee.setSalary(salary);
+			return repo.save(employee);
+		}
+		return null;
 	}
 
 	public void deleteEmployee(Integer id) {
 		repo.deleteById(id);
 	}
-	
+
 	public Employee getDepartment(String department) {
 		return repo.getDepartment(department);
 	}
-	
-	public List<Employee> findByFirstName(String firstName){
+
+	public List<Employee> findByFirstName(String firstName) {
 		return repo.findByFirstName(firstName);
 	}
-	
-	public List<Employee> searchEmployee(String firstName, String department){
-		
+
+	public List<Employee> searchEmployee(String firstName, String department) {
 		if (firstName != null && department != null) {
 			return repo.searchEmployeeByFirstNameAndDepartment(firstName, department);
-		}else if (firstName != null) {
-			return repo.findByFirstName(firstName);
-		}else {
+		} else {
 			return repo.findAll();
 		}
-		
+	}
+
+	public List<Employee> searchEmployeeByName(String firstName) {
+		if (firstName != null) {
+			return repo.findByFirstName(firstName);
+		}
+		else {
+			return repo.findAll();
+		}
 	}
 }
